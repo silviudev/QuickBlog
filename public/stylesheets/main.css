@@ -1,0 +1,18 @@
+body{
+    width:100%;
+    padding: 0;
+    margin: 0;
+}
+
+.jumbotron{
+    margin-top: 10em;
+}
+
+.jumbotron .row{
+    width: 100%;
+}
+
+form{
+    width: 30%;
+    margin: 40px auto;
+}

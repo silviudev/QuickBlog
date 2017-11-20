@@ -1,0 +1,13 @@
+<% include ./partials/header%>
+
+<form action="/blogs" method="POST" class="form-horizontal">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="blog[title]" placeholder="Title of post">
+    </div>    
+    <input type="submit">
+</form>
+
+
+
+<% include ./partials/footer%>
