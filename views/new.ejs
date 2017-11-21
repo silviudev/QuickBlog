@@ -1,13 +1,24 @@
 <% include ./partials/header%>
 
-<form action="/blogs" method="POST" class="form-horizontal">
+<form action="/<%=blogAuthor%>" method="POST" class="form-horizontal">
     <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" name="blog[title]" placeholder="Title of post">
-    </div>    
-    <input type="submit">
+        <label for="post[title]">Title</label>
+        <input type="text" class="form-control" name="post[title]" placeholder="Title of post">
+    </div> 
+    
+    <div class="form-group">
+        <label for="post[image]">Image</label>
+        <input type="text" class="form-control" name="post[image]" placeholder="Image">
+    </div>  
+    
+    <div class="form-group">
+        <label for="post[body]">Body</label>
+        <div class="field">
+            <textarea name="post[body]">Post content goes here. HTML is allowed for styling!</textarea>
+        </div>
+    </div>   
+
+    <input type="submit" value="Create Post">
 </form>
-
-
 
 <% include ./partials/footer%>

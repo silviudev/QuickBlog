@@ -4,6 +4,10 @@ body{
     margin: 0;
 }
 
+h1.text-center{
+    text-decoration: underline;
+}
+
 .jumbotron{
     margin-top: 10em;
 }
@@ -15,4 +19,39 @@ body{
 form{
     width: 30%;
     margin: 40px auto;
+}
+
+textarea{
+    width: 100%;
+    height: 150px;
+    resize: none;
+}
+
+#post{
+    border: 1px solid black;
+    width: 60%;
+    font-size: 1.5em;
+    margin-top: 2%;
+}
+
+#post a{
+    margin-bottom: 1%;
+}
+
+#post h3{
+    font-size: 1.5em;
+}
+
+#post li img{
+    width: 40%;
+}
+
+li{
+    list-style: none;
+}
+
+#newPostButton{
+    display: block;
+    margin: 2% auto;
+    width: 40%;
 }

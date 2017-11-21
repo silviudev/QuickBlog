@@ -4,8 +4,13 @@
     <div class="row">
         <div class="col-sm-12 text-center">
             <h1>Welcome to QuickBlog</h1>
-            <p>A quick way to browse or create blogs</p>
-            <a href="/blogs" class="btn btn-success btn-lg">View popular blogs</a>
+            <p>A fast and easy way to create your own blog</p>
+            <%if(!currentUser){ %>
+                <a href="/register" class="btn btn-success btn-lg">Sign Up</a>
+                <a href="/login" class="btn btn-primary btn-lg">Log In</a>
+            <% }else{ %>
+                <a href="/<%=currentUser.username%>" class="btn btn-success btn-lg">Go to my Blog</a>
+            <% } %>
         </div>
     </div>
 </div>

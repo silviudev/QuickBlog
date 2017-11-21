@@ -1,0 +1,23 @@
+<% include ./partials/header%>
+<h1 class="text-center">Welcome to <%=blogAuthor%>'s Blog</h1>
+
+<% if(posts) {posts.forEach(function(post){ %>
+    <div class="container-fluid" id="post">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h3><%=post.title%></h3>
+                <li>Posted on <%=post.created.toDateString()%></li>
+                <li><img src="<%=post.image%>"></li>
+                <li><%=post.body.substring(0,200)%>...</li>
+                <li><%=post.comments.length%> comments</li> 
+                <a href="/<%=blogAuthor%>/<%=post._id%>" class="btn btn-primary btn-lg">Read More</a>
+                <a href="/<%=blogAuthor%>/<%=post._id%>/edit" class="btn btn-warning btn-lg">Edit Post</a>
+                <a href="/<%=blogAuthor%>/<%=post._id%>" class="btn btn-danger btn-lg">Delete Post</a>
+            </div>
+        </div>
+    </div>
+<% })} %>
+
+<a href="/<%=blogAuthor%>/new" class="btn btn-lg btn-primary" id="newPostButton">Add New Post</a>
+
+<% include ./partials/footer%>
