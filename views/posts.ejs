@@ -8,7 +8,13 @@
                 <h3><%=post.title%></h3>
                 <li>Posted on <%=post.created.toDateString()%></li>
                 <li><img src="<%=post.image%>"></li>
-                <li><%=post.body.substring(0,200)%>...</li>
+                
+                <% if(post.body){%>
+                    <li><%=post.body.substring(0,200)%>...</li>
+                <% }else { %>
+                    <li></li>
+                <%  } %>
+                
                 <li><%=post.comments.length%> comments</li> 
                 <a href="/<%=blogAuthor%>/<%=post._id%>" class="btn btn-primary btn-lg">Read More</a>
                 <a href="/<%=blogAuthor%>/<%=post._id%>/edit" class="btn btn-warning btn-lg">Edit Post</a>

@@ -7,10 +7,37 @@
             <li>Posted on <%=post.created.toDateString()%></li>
             <li><img src="<%=post.image%>"></li>
             <li><%=post.body%>...</li>
-            <li><%=post.comments%> comments</li> 
         </div>
     </div>
 </div>
+
+<h4 class="text-center">Comments:</h4>
+<%post.comments.forEach(function(comment){ %>
+    <div class="container-fluid comment">
+        <div class="row text-center">
+            <li><strong><%=comment.author%></strong> says:</li>
+            <li><%=comment.content.substring(0,1000)%></li>      
+        </div>
+    </div>
+
+<% }) %>
+
+<div class="container-fluid">
+    <div class="row">
+            <form action="/<%=blogAuthor%>/<%=post._id%>/addComment" method="POST" class="commentForm">
+                <div class="field">
+                    <input type="text" name="comment[name]" placeholder="Name">
+                </div>
+                
+                <div class="field">
+                    <input type="text" name="comment[content]" placeholder="Comment (Max 1000 characters)" maxlength="1000">        
+                </div>
+            
+                <input type="submit" value="Add Comment" class="btn-success">
+            </form>               
+    </div>
+</div>
+
 
 <a href="/<%=blogAuthor%>" class="btn btn-lg btn-primary" id="newPostButton"><-- Back to all posts</a>
 

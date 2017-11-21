@@ -6,7 +6,8 @@ var express               = require("express"),
     LocalStrategy         = require("passport-local"),
     User                  = require("./models/user"),
     expressSanitizer      = require("express-sanitizer"),
-    methodOverride        = require("method-override");
+    methodOverride        = require("method-override"),
+    flash                 = require("connect-flash");
 
 var app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
+app.use(flash());
  
 app.use(require("express-session")({
     secret: "This is the string used for encoding things",
@@ -42,8 +44,8 @@ var blogPostRoutes = require("./routes/posts");
 //set up Local variables for use in all routes
 app.use(function(req,res,next){
     res.locals.currentUser = req.user;
-    // res.locals.error = req.flash("error");
-    // res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
  
