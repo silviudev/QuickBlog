@@ -27,22 +27,23 @@ textarea{
     resize: none;
 }
 
-#post{
+.post{
     border: 1px solid black;
     width: 60%;
     font-size: 1.5em;
     margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-#post a{
+.post a{
     margin-bottom: 1%;
 }
 
-#post h3{
+.post h3{
     font-size: 1.5em;
 }
 
-#post li img{
+.post li img{
     width: 40%;
 }
 
@@ -54,4 +55,12 @@ li{
     display: block;
     margin: 2% auto;
     width: 40%;
+}
+
+#delete{
+    display: inline;
+}
+
+#delete button{
+    margin-bottom: 1%;
 }

@@ -2,7 +2,7 @@
 <h1 class="text-center">Welcome to <%=blogAuthor%>'s Blog</h1>
 
 <% if(posts) {posts.forEach(function(post){ %>
-    <div class="container-fluid" id="post">
+    <div class="container-fluid post">
         <div class="row">
             <div class="col-xs-12 text-center">
                 <h3><%=post.title%></h3>
@@ -12,7 +12,9 @@
                 <li><%=post.comments.length%> comments</li> 
                 <a href="/<%=blogAuthor%>/<%=post._id%>" class="btn btn-primary btn-lg">Read More</a>
                 <a href="/<%=blogAuthor%>/<%=post._id%>/edit" class="btn btn-warning btn-lg">Edit Post</a>
-                <a href="/<%=blogAuthor%>/<%=post._id%>" class="btn btn-danger btn-lg">Delete Post</a>
+                <form id="delete" action="/<%=blogAuthor%>/<%=post._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-lg">Delete Post</button>
+                </form>
             </div>
         </div>
     </div>

@@ -5,7 +5,8 @@ var express               = require("express"),
     passport              = require("passport"),
     LocalStrategy         = require("passport-local"),
     User                  = require("./models/user"),
-    expressSanitizer      = require("express-sanitizer");
+    expressSanitizer      = require("express-sanitizer"),
+    methodOverride        = require("method-override");
 
 var app = express();
 
@@ -13,13 +14,13 @@ var app = express();
 mongoose.connect("mongodb://localhost/quickblog", {useMongoClient: true});
 mongoose.Promise = global.Promise;
 
-
 //Set view engine to ejs, to serve templates from views directory
 app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(expressSanitizer());
+app.use(methodOverride("_method"));
  
 app.use(require("express-session")({
     secret: "This is the string used for encoding things",
@@ -45,7 +46,7 @@ app.use(function(req,res,next){
     // res.locals.success = req.flash("success");
     next();
 });
-
+ 
 //Use routes
 app.use(indexRoutes);
 app.use(blogPostRoutes);

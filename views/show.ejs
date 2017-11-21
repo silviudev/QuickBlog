@@ -1,0 +1,17 @@
+<% include ./partials/header%>
+<h1 class="text-center"><%=post.title%></h1>
+
+<div class="container-fluid post">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <li>Posted on <%=post.created.toDateString()%></li>
+            <li><img src="<%=post.image%>"></li>
+            <li><%=post.body%>...</li>
+            <li><%=post.comments%> comments</li> 
+        </div>
+    </div>
+</div>
+
+<a href="/<%=blogAuthor%>" class="btn btn-lg btn-primary" id="newPostButton"><-- Back to all posts</a>
+
+<% include ./partials/footer%>
